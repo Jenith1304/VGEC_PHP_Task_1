@@ -21,6 +21,6 @@ ToDo List Using Ajax In PHPgit<br>
 <hr>
 <h1>Screenshots</h1><br>
 1.Registration<br>
-2.Login.php
-![Alt text](<Screenshot 2024-02-24 174655.png>)
+2.Login.php<br>
+<img src="screenshots/Login.php.png">
 
