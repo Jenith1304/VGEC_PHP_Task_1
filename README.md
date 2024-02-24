@@ -1,6 +1,6 @@
 # VGEC_PHP_Task_1
 ToDo List Using Ajax In PHPgit<br>
-<h1>To-do List<h1><br>
+<h1>To-do List</h1><br>
 • Create Login , Signup [Using Session Management, Captcha]✅<br>
 • Create Forgot Password [Using OTP]✅<br>
 • Add To-do List and User Credential in DATABASE [Using MYSQL]✅<br>
@@ -19,8 +19,8 @@ ToDo List Using Ajax In PHPgit<br>
 1.Google Recaptcha <br>
 2.PHPMAILER<br>
 <hr>
-<h1>Screenshots<h1><br>
+<h1>Screenshots</h1><br>
 1.Registration<br>
 2.Login.php
-(<Screenshot 2024-02-24 174655.png>)
+![Alt text](<Screenshot 2024-02-24 174655.png>)
 
