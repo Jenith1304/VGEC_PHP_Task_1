@@ -1,0 +1,21 @@
+#error_message {
+    background: rgb(225, 94, 94);
+    padding: 10px;
+    margin: 10px;
+    color: white;
+    display: none;
+    position: absolute;
+    right: 12px;
+    top: 50px;
+}
+
+#success_message {
+    background: rgb(182, 236, 129);
+    padding: 10px;
+    margin: 10px;
+    color: green;
+    display: none;
+    position: absolute;
+    right: 12px;
+    top: 50px;
+}
