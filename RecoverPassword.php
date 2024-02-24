@@ -114,7 +114,7 @@
             }else{
                 ?>
                     <script>
-                       alert("Password Sent Successfully to your Email");
+                       alert("Reset Password Link Sent Successfully to your Email");
                     </script>
                 <?php
             }
