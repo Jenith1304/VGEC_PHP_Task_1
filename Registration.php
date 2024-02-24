@@ -1,7 +1,9 @@
 <?php
+error_reporting(E_ERROR | E_WARNING | E_PARSE);
 $con=mysqli_connect("localhost","root","","vgec_php_task_1");
 if (isset($_REQUEST["btn_register"]))
 {
+$msg=$_REQUEST["msg"];
 $fname=$_REQUEST["txt_fname"];
 $lname=$_REQUEST["txt_lname"];
 $gender=$_REQUEST["chk_gender"];
@@ -12,6 +14,17 @@ $state=$_REQUEST["txt_state"];
 $zip=$_REQUEST["txt_zip"];
 $regpassword=$_REQUEST["txt_password"];
 $regcfpassword=$_REQUEST["txt_cfpassword"];
+$sql = mysqli_query($con, "SELECT * FROM `registration` WHERE `Email Address`='$regemail'");
+$result = mysqli_num_rows($sql);
+$fetch = mysqli_fetch_assoc($sql);
+
+if(mysqli_num_rows($sql) > 0){
+     ?>
+     <script>
+           alert("<?php  echo "Sorry Mail Already Exists,Please Try with Different Mail Address "?>");
+     </script>
+           <?php  
+}else{
 if($regpassword == $regcfpassword)
 {
      $query="INSERT INTO `registration`(`Fname`, `Lname`, `Email Address`, `Phone Number`, `Gender`, `City`, `State`, `Zip`, `Password`) VALUES 
@@ -27,9 +40,10 @@ else{
      <script> alert("Passwords Do Not Match,Please try Again")
      <?php
 }
+}    
 }
 ?>
-<!DOCTYPE html>
+<html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -38,6 +52,9 @@ else{
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <!-- userdefined scripts -->
     <script src="script.js"></script>
 </head>
@@ -45,11 +62,8 @@ else{
     <title>Registration</title>
 </head>
 <body>
-        <nav class="navbar bg-body-tertiary">
-             <div class="container-fluid">
-                <span class="navbar-brand mb-0 h1">To Do List Registration</span>
-            </div>
-         </nav>
+<!-- navbar included -->
+<?php include 'navbar.php'; ?>
     <!-- Registration Form  -->
         <form method="post">
            <div class="container mt-5 border border-dark rounded" style="max-width:620px">
@@ -103,7 +117,7 @@ else{
                 <div class="form-group col-md-4 mt-2">
                      <label for="inputZip">Zip</label>
                      <input type="text" onKeyUp="validateInput()" class="form-control"  name="txt_zip" id="zipCode" required />
-                     <div id="msg" >
+                     <div id="msg" name="msg">
                      </div>
                </div>
                <div class="form-group col-md-6 mt-2">
@@ -116,6 +130,7 @@ else{
                 </div>
                 <div class="form-group mt-3 mb-2 ">
                 <button type="submit" name="btn_register" class="btn btn-success">Register</button>
+                <a href="Login.php" class="btn btn-link">Login</a>
                 </div>
 
                </div>
