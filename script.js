@@ -7,7 +7,7 @@ function validateInput() {
     let zipCode = document.getElementById("zipCode").value;
     let message = "";
     if (isIndianZipCode(zipCode)) {
-        // message = "Valid Zip Code";
+        message = "Valid Zip Code";
     } else {
         message = "Invalid Zip Code";
     }
