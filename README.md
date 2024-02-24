@@ -21,6 +21,16 @@ ToDo List Using Ajax In PHPgit<br>
 <hr>
 <h1>Screenshots</h1><br>
 1.Registration<br>
-2.Login.php<br>
-<img src="screenshots/Login.php.png">
-
+<img src="screenshots/Registration.php.png"><br>
+2.Login<br>
+<img src="screenshots/Login.php.png"><br>
+3.ToDo<br>
+<img src="screenshots/ToDo.php.png"><br>
+4.Recover Password<br>
+<img src="screenshots/Recover Password.php.png"><br>
+5.Reset Password<br>
+<img src="screenshots/Reset Password.png"><br>
+6.Edit Data using modal
+<img src="screenshots/Edit Modal.php.png"><br>
+<br>
+<h3>Thank You</h3>
