@@ -69,11 +69,8 @@
         $con=mysqli_connect("localhost","root","","vgec_php_task_1");
         $psw = $_POST["rstpassword"];
 
-        $token =   $_SESSION['token'];
+        $token = $_SESSION['token'];
         $Email = $_SESSION['rstpswemail'];
-
-        //$hash = password_hash( $psw , PASSWORD_DEFAULT );
-
         $sql = mysqli_query($con, "SELECT * FROM `registration` WHERE `Email Address`='$Email'");
         $query = mysqli_num_rows($sql);
   	    $fetch = mysqli_fetch_assoc($sql);
