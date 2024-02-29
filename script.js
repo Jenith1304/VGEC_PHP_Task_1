@@ -22,5 +22,4 @@ function ValidateMobileNumber() {
     if (!expr.test(mobileNumber)) {
         lblError.innerHTML = "Invalid Mobile Number.";
     }
-
 }
