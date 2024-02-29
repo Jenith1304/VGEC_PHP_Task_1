@@ -43,7 +43,7 @@
                             </div>
 
                             <div class="col-md-6 offset-md-4">
-                                <input type="submit" value="Recover" name="recover">
+                                <input type="submit" value="Send OTP" name="recover">
                             </div>
                     </div>
                     </form>
@@ -61,6 +61,8 @@
     if(isset($_POST["recover"])){
         $con=mysqli_connect("localhost","root","","vgec_php_task_1");
         $rstpswemail = $_POST["rstpswemail"];
+        $otp=rand(100000, 999999);
+        $_SESSION["otp"]=$otp;
         $sql = mysqli_query($con, "SELECT * FROM `registration` WHERE `Email Address`='$rstpswemail'");
         $query = mysqli_num_rows($sql);
   	    $fetch = mysqli_fetch_assoc($sql);
@@ -73,6 +75,18 @@
             <?php
         }
         else{
+            $query="UPDATE `registration` SET `OTP`=$otp WHERE `Email Address`='$rstpswemail'";
+            if(mysqli_query($con,$query))
+            {
+            }
+            else
+            {
+                ?>
+                <script>
+                        alert("Please Try again Later");
+                    </script>
+                    <?php
+            }
             // generate token by binaryhexa 
             $token = bin2hex(random_bytes(50));
             $_SESSION['token'] = $token;
@@ -100,8 +114,8 @@
             $mail->Subject="Recover your password";
             $mail->Body="<b>Dear User</b>
             <h3>We received a request to reset your password.</h3>
-            <p>Kindly click the below link to reset your password</p>
-            http://localhost/VGEC_PHP_Task_1/ResetPassword.php
+            <p>Kindly verify using below OTP</p>
+            ".$otp."
             <br><br>
             <p>With regrads,</p>";
 
@@ -114,7 +128,8 @@
             }else{
                 ?>
                     <script>
-                       alert("Reset Password Link Sent Successfully to your Email");
+                       alert("OTP Sent Succesfully To Your Email,Please Verify");
+                       window.location.href = "Otp.php";
                     </script>
                 <?php
             }
