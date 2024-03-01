@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 24, 2024 at 01:03 PM
+-- Generation Time: Mar 01, 2024 at 07:49 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -37,21 +37,22 @@ CREATE TABLE `registration` (
   `City` varchar(150) NOT NULL,
   `State` varchar(150) NOT NULL,
   `Zip` varchar(10) NOT NULL,
-  `Password` varchar(150) NOT NULL
+  `Password` varchar(150) NOT NULL,
+  `OTP` int(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `registration`
 --
 
-INSERT INTO `registration` (`id`, `Fname`, `Lname`, `Email Address`, `Phone Number`, `Gender`, `City`, `State`, `Zip`, `Password`) VALUES
-(8, 'sscsc', 'scdfsf', '12345@gmail.com', '9978449197', 'Male', 'ahmedavbad', 'gujarat', '380001', '456'),
-(7, 'sscsc', 'scdfsf', '1234@gmail.com', '456', 'Male', 'ahmedavbad', 'gujarat', '38000', '456'),
-(1, 'Mital', 'Panchal', '123@gmail.com', '9978449197', 'Female', 'ahmedavbad', 'gujarat', '380001', '456'),
-(6, 'Mital', 'Panchal', '456@gmail.com', '9978', 'Male', 'ahmedavbad', 'gujarat', '380001', '456'),
-(3, 'Mital', 'Panchal', 'bookatplaybox7@gmail.com', '9978449197', 'Female', 'ahmedavbad', 'gujarat', '380001', '2306'),
-(4, 'Salman', 'Khan', 'jenithpanchal1304@gmail.com', '9978449197', 'Male', 'ahmedavbad', 'gujarat', '380001', '1304'),
-(2, 'Jenith', 'Panchal', 'minakanupanchal@gmail.com', '9978449197', 'Male', 'Ahmedabad', 'gujarat', '380001', '789');
+INSERT INTO `registration` (`id`, `Fname`, `Lname`, `Email Address`, `Phone Number`, `Gender`, `City`, `State`, `Zip`, `Password`, `OTP`) VALUES
+(8, 'sscsc', 'scdfsf', '12345@gmail.com', '9978449197', 'Male', 'ahmedavbad', 'gujarat', '380001', '456', 0),
+(7, 'sscsc', 'scdfsf', '1234@gmail.com', '456', 'Male', 'ahmedavbad', 'gujarat', '38000', '456', 0),
+(1, 'Mital', 'Panchal', '123@gmail.com', '9978449197', 'Female', 'ahmedavbad', 'gujarat', '380001', '456', 0),
+(6, 'Mital', 'Panchal', '456@gmail.com', '9978', 'Male', 'ahmedavbad', 'gujarat', '380001', '456', 0),
+(3, 'Mital', 'Panchal', 'bookatplaybox7@gmail.com', '9978449197', 'Female', 'ahmedavbad', 'gujarat', '380001', '2306', 0),
+(4, 'Salman', 'Khan', 'jenithpanchal1304@gmail.com', '9978449197', 'Male', 'ahmedavbad', 'gujarat', '380001', '2306', 469909),
+(2, 'Jenith', 'Panchal', 'minakanupanchal@gmail.com', '9978449197', 'Male', 'Ahmedabad', 'gujarat', '380001', '1304', 187592);
 
 -- --------------------------------------------------------
 
